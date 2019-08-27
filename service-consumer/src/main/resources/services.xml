@@ -6,8 +6,10 @@
 
     <dubbo:application name="consumer-app" />
 
-    <dubbo:registry protocol="zookeeper" address="${ZOOKEEPER_SERVER}:2181" />
+    <dubbo:registry address="N/A" />
 
-    <dubbo:reference id="greetingService" interface="com.example.service.Greetings" />
+    <dubbo:reference id="greetingService" interface="com.example.service.Greetings" url="dubbo://provider:20880" />
+    <dubbo:reference id="helloService" group="helloService" interface="com.example.service.Hello" url="dubbo://provider:20880" />
+    <dubbo:reference id="hiService" group="hiService" interface="com.example.service.Hello" url="dubbo://provider:20880" />
 
 </beans>
